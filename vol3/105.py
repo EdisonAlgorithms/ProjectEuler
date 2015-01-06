@@ -1,4 +1,4 @@
-from itertools import combinations, product
+from itertools import combinations
 from urllib2 import urlopen
 from math import ceil
 
@@ -29,13 +29,9 @@ def check_cond2(s):
     return True
 
 if __name__ == "__main__":
-    current = [20, 31, 38, 39, 40, 44, 46]
-    ans = sum(current)
-    for i in product(*[list(range(x - 3, x + 4)) for x in current]):
-        l = list(i)
-        if sum(l) >= ans:
-            continue
-        elif check_cond2(l) and check_cond1(l):
-            current = l
-            ans = sum(current)
-    print "".join(str(x) for x in sorted(current))
+    sets = []
+    for l in urlopen('https://projecteuler.net/project/resources/p105_sets.txt'):
+        s = sorted(map(int, l.strip().split(',')))
+        sets.append(s)
+    print sum(sum(s) for s in sets if check_cond2(s) and check_cond1(s)) 
+
