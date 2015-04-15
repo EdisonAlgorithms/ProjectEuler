@@ -1,4 +1,4 @@
 ProjectEuler
 ============
 
-The code of ProjectEuler
+The code of ProjectEuler.
