@@ -31,6 +31,7 @@ int main(int argc, char** argv) {
     unsigned long* p2 = p_list(L, 2);
     unsigned long* p5 = p_list(L, 5);
 
+    #pragma omp parallel for private(k1, k2, k3) reduction(+ : ans)
     for (k1 = 0; k1 < L / 3; k1++) {
         for (k2 = k1; k2 <= L - k1 - k2; k2++) {
             k3 = L - k1 - k2;
