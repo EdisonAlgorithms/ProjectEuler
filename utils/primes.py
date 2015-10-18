@@ -41,6 +41,8 @@ def is_prime_array(n, array):
     return True
 
 def is_prime(n):
+    if n == 0:
+        return False
     if n < 1373653:
         return is_prime_array(n, [2, 3])
     elif n < 9080191:
